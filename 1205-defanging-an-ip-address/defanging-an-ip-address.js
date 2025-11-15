@@ -4,5 +4,10 @@
  */
 
 var defangIPaddr = function (address) {
-   return address.replaceAll(".","[.]")
+   return address.split("").map(el=>{
+        if(el==="."){
+            return "[.]"
+        }
+        return el
+    }).join("")
 };
