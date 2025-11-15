@@ -3,7 +3,12 @@
  * @return {number}
  */
 var findGCD = function(nums) {
-     let num = nums.sort((a,b)=>a-b);
-    let gcd = (x,y)=> y === 0 ? x : gcd(y,x%y);
-    return gcd(num[0],num[num.length-1]);
+     let min = Infinity;
+    let max = -Infinity;
+    for (let n of nums) {
+        if (n < min) min = n;
+        if (n > max) max = n;
+    }
+    const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+    return gcd(min, max);
 };
