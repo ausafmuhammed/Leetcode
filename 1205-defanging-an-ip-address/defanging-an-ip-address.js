@@ -4,10 +4,10 @@
  */
 
 var defangIPaddr = function (address) {
-   return address.split("").map(el=>{
-        if(el==="."){
-            return "[.]"
-        }
-        return el
-    }).join("")
+   let out = [];
+    for (let c of address) {
+        if (c === ".") out.push("[.]");
+        else out.push(c);
+    }
+    return out.join('');
 };
